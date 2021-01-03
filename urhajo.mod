@@ -19,36 +19,41 @@ Menekülni kell tehát gyorsnak kell lenni, el kell dönteni, hogy hogyan osztom be
 
 set Planets;
 
-param DistanceInHour{Planets}; #hours
-param TimeToFill {Planets}; #hours
+param Distance{Planets}; #lightyear
+param TimeToFill {Planets}; #hour
 param SafeFromPolice {Planets} binary;
 
-param TotalDistance; #hours 
-param TimeToDepleteTank; #hours
-param TankAtStart; #hours
-param ConsumptionUnit; #hours
+param TotalDistance; #lightyear 
+param TankCapacity; #liter
+param TankAtStart; #liter
+param Consumption; #liter/hour
 
 #Variables
 
- var CurrentFillingTime{Planets} >= 0;
+ var CurrentFillingTime{Planets} >= 0; #töltési idõ
 
 #Constraints
 
 #El kell érnünk a célba
 s.t. ReachEndOfRoute:
-      (TankAtStart + sum {p in Planets} CurrentFillingTime[p]) * 1/ConsumptionUnit >= TotalDistance;
+      (TankAtStart + sum {p in Planets} CurrentFillingTime[p]) * Consumption >= TotalDistance;
 
 #Nem tölthetjük túl a tankot
 s.t. CannotGoOverTankCapacity{p in Planets}:
-      CurrentFillingTime[p] <= TimeToDepleteTank*SafeFromPolice[p];
+      TankAtStart + sum {p2 in Planets: Distance[p2] < Distance[p]} CurrentFillingTime[p2] - Distance[p] * Consumption + CurrentFillingTime[p] <= TankCapacity;
+
+#Nem fogyhat ki a tank
+s.t. TankCannotBeZero{p in Planets}:
+            TankAtStart + sum {p2 in Planets: Distance[p2] < Distance[p]} CurrentFillingTime[p2] - Distance[p] * Consumption + CurrentFillingTime[p] >= 0;
 
 #Egy bolygón nem tölthetünk több idõt mint amennyi erõforrásuk van
 s.t. CannotGoOverTankTimeToFill{p in Planets}:
       CurrentFillingTime[p] <= TimeToFill[p]*SafeFromPolice[p];
       
-#Egy bolygón nem tölthetünk több idõt mint 60perc
+#Egy bolygón nem tölthetünk több idõt mint 30óra
 s.t. CannotGoOver1hour{p in Planets}:
-      CurrentFillingTime[p] <= 60;
+      CurrentFillingTime[p] <= 30;
+
       
 #Objective function
 #A Totál táv ideje, + a töltések ideje, olyan helyeken ahol nincsenek rendõrök
@@ -59,7 +64,7 @@ solve;
 
 #Printek
 printf "\n";
-printf "Alaptávolság: %d óra\n", TotalDistance;
+printf "Alaptávolság: %d fényév\n", TotalDistance;
 printf "Leggyorsabb idõ amennyi alatt odaér a hajó: %d óra\n", TotalDistance + sum{p in Planets} CurrentFillingTime[p]*SafeFromPolice[p];
 printf "\n";
 printf "Bolygón töltött idõ:\n";
@@ -75,7 +80,7 @@ data;
 set Planets:= 
 			Chiseunov Nilliliv Ognion Yandov Souria Ouphus;
 
-param: 			DistanceInHour 		TimeToFill  SafeFromPolice:=
+param: 			Distance 		TimeToFill  SafeFromPolice:=
 Chiseunov		20						30          0
 Nilliliv		50						40          1
 Ognion		    60						50          1
@@ -84,9 +89,9 @@ Souria		    80						20          0
 Ouphus		    90						50          1;
 
 
-param TotalDistance:= 120; #hour
-param TankAtStart:= 40;
-param TimeToDepleteTank := 40; #hour
-param ConsumptionUnit := 1; #hour
+param TotalDistance:= 120; #lightyear
+param TankAtStart:= 40; #Liter
+param TankCapacity := 40; #Liter
+param Consumption := 1; #liter/hour
 
 end;
