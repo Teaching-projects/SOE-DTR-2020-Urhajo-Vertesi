@@ -36,7 +36,9 @@ Váltzóm csak egyetlen egy lesz. Amely arra vonatkozik, hogy egy bolygón menny
 ```ampl
 var CurrentFillingTime{Planets} >= 0; #töltési idő
 ```
-A modell sikerét a korlátozások fogják jelenti, amellyel megszabjuk, hogy milyen feltételek mentén számoljon a modellünk, ezen feladat esetében négyet definiáltam.
+
+## Korlátozások
+A modell sikerét a korlátozások fogják jelenti, amellyel megszabjuk, hogy milyen feltételek mentén számoljon a modellünk, ezen feladat esetében ötöt definiáltam.
 
 Az első arra vonatkozik, hogy el kell jutnunk a célba, ez úgy fog működni, hogy a kezdő kapacitáshoz hozzáadjuk a fogyasztást, szorozva a bolygónkénti üzemanyagtöltéssel,amelynek nagyobbnak kell lennie mint az össztávolság, hiszen mindenképpen a  célba akarunk érni.
 
