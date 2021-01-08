@@ -1,0 +1,155 @@
+Problem:    urhajo
+Rows:       50
+Columns:    12
+Non-zeros:  192
+Status:     OPTIMAL
+Objective:  TotalTime = 354.1666667 (MINimum)
+
+   No.   Row name   St   Activity     Lower bound   Upper bound    Marginal
+------ ------------ -- ------------- ------------- ------------- -------------
+     1 ReachEndOfRoute
+                    NL           210           210                        0.25 
+     2 CannotGoOverTankCapacity[Chiseunov]
+                    NU            20                          20         < eps
+     3 CannotGoOverTankCapacity[Nilliliv]
+                    NU            35                          35     -0.666667 
+     4 CannotGoOverTankCapacity[Ognion]
+                    B             35                          50 
+     5 CannotGoOverTankCapacity[Yandov]
+                    B             40                          70 
+     6 CannotGoOverTankCapacity[Souria]
+                    B             80                          80 
+     7 CannotGoOverTankCapacity[Ouphus]
+                    B             80                          90 
+     8 CannotGoOverTankCapacity[ThadusE97]
+                    NU           100                         100         < eps
+     9 CannotGoOverTankCapacity[Durn08P]
+                    B            100                         120 
+    10 CannotGoOverTankCapacity[Alea]
+                    NU           140                         140          -0.5 
+    11 CannotGoOverTankCapacity[Isomia]
+                    B            160                         170 
+    12 CannotGoOverTankCapacity[Vicrosie]
+                    B            180                         200 
+    13 CannotGoOverTankCapacity[Tulvaomia]
+                    B            210                         220 
+    14 TankCannotBeZero[Chiseunov]
+                    B              0           -20               
+    15 TankCannotBeZero[Nilliliv]
+                    B             20            -5               
+    16 TankCannotBeZero[Ognion]
+                    B             35            10               
+    17 TankCannotBeZero[Yandov]
+                    B             35            30               
+    18 TankCannotBeZero[Souria]
+                    NL            40            40                         0.5 
+    19 TankCannotBeZero[Ouphus]
+                    B             80            50               
+    20 TankCannotBeZero[ThadusE97]
+                    B             80            60               
+    21 TankCannotBeZero[Durn08P]
+                    B            100            80               
+    22 TankCannotBeZero[Alea]
+                    B            100           100               
+    23 TankCannotBeZero[Isomia]
+                    B            140           130               
+    24 TankCannotBeZero[Vicrosie]
+                    NL           160           160                         0.5 
+    25 TankCannotBeZero[Tulvaomia]
+                    NL           180           180                        0.25 
+    26 CannotGoOverAvailableRescource[Chiseunov]
+                    B        6.66667                          20 
+    27 CannotGoOverAvailableRescource[Nilliliv]
+                    B              5                          40 
+    28 CannotGoOverAvailableRescource[Ognion]
+                    NU             0                          -0            -3 
+    29 CannotGoOverAvailableRescource[Yandov]
+                    B              5                          30 
+    30 CannotGoOverAvailableRescource[Souria]
+                    NU            20                          20         < eps
+    31 CannotGoOverAvailableRescource[Ouphus]
+                    NU             0                          -0            -1 
+    32 CannotGoOverAvailableRescource[ThadusE97]
+                    B             10                          30 
+    33 CannotGoOverAvailableRescource[Durn08P]
+                    NU             0                          -0          -0.5 
+    34 CannotGoOverAvailableRescource[Alea]
+                    B             20                          50 
+    35 CannotGoOverAvailableRescource[Isomia]
+                    B             20                          30 
+    36 CannotGoOverAvailableRescource[Vicrosie]
+                    B             10                          20 
+    37 CannotGoOverAvailableRescource[Tulvaomia]
+                    B            7.5                          50 
+    38 CannotGoOver1hour[Chiseunov]
+                    B        6.66667                          30 
+    39 CannotGoOver1hour[Nilliliv]
+                    B              5                          30 
+    40 CannotGoOver1hour[Ognion]
+                    B              0                          30 
+    41 CannotGoOver1hour[Yandov]
+                    B              5                          30 
+    42 CannotGoOver1hour[Souria]
+                    B             20                          30 
+    43 CannotGoOver1hour[Ouphus]
+                    B              0                          30 
+    44 CannotGoOver1hour[ThadusE97]
+                    B             10                          30 
+    45 CannotGoOver1hour[Durn08P]
+                    B              0                          30 
+    46 CannotGoOver1hour[Alea]
+                    B             20                          30 
+    47 CannotGoOver1hour[Isomia]
+                    B             20                          30 
+    48 CannotGoOver1hour[Vicrosie]
+                    B             10                          30 
+    49 CannotGoOver1hour[Tulvaomia]
+                    B            7.5                          30 
+    50 TotalTime    B        104.167                             
+
+   No. Column name  St   Activity     Lower bound   Upper bound    Marginal
+------ ------------ -- ------------- ------------- ------------- -------------
+     1 CurrentFillingTime[Chiseunov]
+                    B        6.66667             0               
+     2 CurrentFillingTime[Nilliliv]
+                    B              5             0               
+     3 CurrentFillingTime[Ognion]
+                    B              0             0               
+     4 CurrentFillingTime[Yandov]
+                    B              5             0               
+     5 CurrentFillingTime[Souria]
+                    B             20             0               
+     6 CurrentFillingTime[Ouphus]
+                    B              0             0               
+     7 CurrentFillingTime[ThadusE97]
+                    B             10             0               
+     8 CurrentFillingTime[Durn08P]
+                    B              0             0               
+     9 CurrentFillingTime[Alea]
+                    B             20             0               
+    10 CurrentFillingTime[Isomia]
+                    B             20             0               
+    11 CurrentFillingTime[Vicrosie]
+                    B             10             0               
+    12 CurrentFillingTime[Tulvaomia]
+                    B            7.5             0               
+
+Karush-Kuhn-Tucker optimality conditions:
+
+KKT.PE: max.abs.err = 0.00e+00 on row 0
+        max.rel.err = 0.00e+00 on row 0
+        High quality
+
+KKT.PB: max.abs.err = 0.00e+00 on row 0
+        max.rel.err = 0.00e+00 on row 0
+        High quality
+
+KKT.DE: max.abs.err = 0.00e+00 on column 0
+        max.rel.err = 0.00e+00 on column 0
+        High quality
+
+KKT.DB: max.abs.err = 0.00e+00 on row 0
+        max.rel.err = 0.00e+00 on row 0
+        High quality
+
+End of output
